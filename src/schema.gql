@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type DepartamentoUsuario {
+  id: ID!
+  usuario_id: String!
+  departamento_id: String!
+  estado: Boolean!
+}
+
+type ProcesoDeterminado {
+  id: ID!
+  name: String!
+  proceso_id: String!
+  flujo_proceso_id: String!
+  estado: Boolean!
+}
+
+type Query {
+  departamentosUsuarios: [DepartamentoUsuario!]!
+  procesosDeterminados: [ProcesoDeterminado!]!
+}
+
+type Mutation {
+  createDepartamentoUsuario(createDepartamentoUsuarioInput: CreateDepartamentoUsuarioInput!): DepartamentoUsuario!
+  softDeleteDepartamentoUsuario(id: String!): Boolean!
+  createProcesoDeterminado(createProcesoDeterminadoInput: CreateProcesoDeterminadoInput!): ProcesoDeterminado!
+  softDeleteProcesoDeterminado(id: String!): Boolean!
+}
+
+input CreateDepartamentoUsuarioInput {
+  """ID del usuario"""
+  usuario_id: String!
+
+  """ID del departamento"""
+  departamento_id: String!
+
+  """Estado del proceso determinado"""
+  estado: Boolean!
+}
+
+input CreateProcesoDeterminadoInput {
+  """Nombre del proceso determinado"""
+  name: String!
+
+  """ID del proceso"""
+  proceso_id: String!
+
+  """ID del flujo del proceso"""
+  flujo_proceso_id: String!
+
+  """Estado el flujo del proceso"""
+  estado: Boolean!
+}
